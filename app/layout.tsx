@@ -1,11 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import AnalyticsWrapper from "@/components/analytics-wrapper"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
+
+export const dynamic = "error"
+export const revalidate = false
 
 export const metadata: Metadata = {
   title: "Benchies - Decentralized Finance Made Simple",
@@ -41,7 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans antialiased`}>
         {children}
-        <Analytics />
+        <AnalyticsWrapper />
       </body>
     </html>
   )

@@ -1,41 +1,15 @@
 image: node:20
 
-stages:
-  - build
-  - deploy
-
-variables:
-  NEXT_TELEMETRY_DISABLED: 1
-
-cache:
-  paths:
-    - node_modules/
-
-build:
-  stage: build
+pages:
+  stage: deploy
   script:
     - npm ci
     - npm run build
-  artifacts:
-    paths:
-      - out/
-    expire_in: 1 hour
-  only:
-    - main
-    - master
-
-pages:
-  stage: deploy
-  dependencies:
-    - build
-  script:
-    - mkdir -p public
-    - if [ -d "out" ]; then cp -r out/. public/; fi
-    - echo "Deployment ready"
+    - mv out public
+    - cp public/index.html public/404.html
   artifacts:
     paths:
       - public
   only:
     - main
-    - master
 
