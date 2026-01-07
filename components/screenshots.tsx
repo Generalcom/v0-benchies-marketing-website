@@ -27,15 +27,7 @@ const screenshots = [
   },
   {
     title: "AI Chat",
-    image: "/ai-assistant-chat-financial-advice.jpg",
-  },
-  {
-    title: "Tap to Pay",
-    image: "/placeholder.svg?height=800&width=400",
-  },
-  {
-    title: "Transaction History",
-    image: "/placeholder.svg?height=800&width=400",
+    image: "/ai-chat-interface-financial-assistant.jpg",
   },
 ]
 
@@ -108,7 +100,7 @@ export default function Screenshots() {
                   <button onClick={() => openLightbox(index)} className="block w-full group cursor-pointer">
                     <div className="relative aspect-[9/16] max-w-[280px] mx-auto bg-gray-900 rounded-3xl border-8 border-gray-800 shadow-xl overflow-hidden transition-transform duration-300 group-hover:scale-105">
                       <img
-                        src={screenshot.image || "/placeholder.svg"}
+                        src={screenshot.image}
                         alt={screenshot.title}
                         className="w-full h-full object-cover"
                       />
@@ -182,7 +174,7 @@ export default function Screenshots() {
           <div className="max-w-md w-full">
             <div className="relative aspect-[9/16] bg-gray-900 rounded-3xl border-8 border-gray-800 overflow-hidden">
               <img
-                src={screenshots[lightboxIndex].image || "/placeholder.svg"}
+                src={screenshots[lightboxIndex].image}
                 alt={screenshots[lightboxIndex].title}
                 className="w-full h-full object-cover"
               />

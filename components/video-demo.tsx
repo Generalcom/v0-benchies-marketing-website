@@ -56,16 +56,14 @@ export default function VideoDemo() {
           }`}
         >
           <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-            {/* Placeholder video - user will replace with actual demo */}
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
-              poster="/placeholder.svg?height=1080&width=1920"
-              controls={isPlaying}
+              controls
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             >
-              <source src="/placeholder-video.mp4" type="video/mp4" />
+              <source src="/demo-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 

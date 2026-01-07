@@ -1,0 +1,11 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="6" fill="#000000"/>
+  <!-- Play Icon -->
+  <g transform="translate(12, 10)">
+    <circle cx="8" cy="10" r="8" fill="#FFFFFF"/>
+    <path d="M6 7L6 13L11 10L6 7Z" fill="#000000"/>
+  </g>
+  <!-- Text -->
+  <text x="30" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="8" font-weight="400" fill="#FFFFFF" letter-spacing="0.3px">Download on the</text>
+  <text x="30" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">App Store</text>
+</svg>

@@ -7,7 +7,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="text-2xl font-bold mb-4">Benchies</h3>
+            <img
+              src="/icon.svg"
+              alt="Benchies Logo"
+              className="h-8 w-auto mb-4 brightness-0 invert"
+            />
             <p className="text-gray-400 text-sm leading-relaxed">
               Your wallet, your rules. Decentralized finance made simple.
             </p>

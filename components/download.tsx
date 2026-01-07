@@ -6,10 +6,12 @@ import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ArrowRight, Mail } from "lucide-react"
+import QRCode from "qrcode"
 
 export default function Download() {
   const [email, setEmail] = useState("")
   const [isVisible, setIsVisible] = useState(false)
+  const [qrCodeUrl, setQrCodeUrl] = useState<string>("")
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -27,6 +29,27 @@ export default function Download() {
     }
 
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    // Generate QR code with "Feature coming soon" text
+    const generateQRCode = async () => {
+      try {
+        const url = await QRCode.toDataURL("Feature coming soon", {
+          width: 200,
+          margin: 2,
+          color: {
+            dark: "#000000",
+            light: "#FFFFFF",
+          },
+        })
+        setQrCodeUrl(url)
+      } catch (error) {
+        console.error("Error generating QR code:", error)
+      }
+    }
+
+    generateQRCode()
   }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -80,25 +103,47 @@ export default function Download() {
 
           {/* App Store Badges */}
           <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <div className="h-14 w-40 bg-white/10 rounded-xl flex items-center justify-center text-sm text-gray-400 border border-white/20">
-              App Store Badge
-            </div>
-            <div className="h-14 w-40 bg-white/10 rounded-xl flex items-center justify-center text-sm text-gray-400 border border-white/20">
-              Google Play Badge
-            </div>
+            <a
+              href="#"
+              className="inline-block hover:opacity-80 transition-opacity"
+              aria-label="Download on the App Store"
+            >
+              <img
+                src="/app-store-badge.svg"
+                alt="Download on the App Store"
+                className="h-12 w-auto"
+              />
+            </a>
+            <a
+              href="#"
+              className="inline-block hover:opacity-80 transition-opacity"
+              aria-label="Get it on Google Play"
+            >
+              <img
+                src="/google-play-badge.svg"
+                alt="Get it on Google Play"
+                className="h-12 w-auto"
+              />
+            </a>
           </div>
 
-          {/* QR Code Placeholder */}
+          {/* QR Code */}
           <div className="mb-12">
             <div className="inline-block p-6 bg-white rounded-2xl shadow-2xl">
-              <div className="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                <img
-                  src="/placeholder.svg?height=192&width=192"
-                  alt="QR Code"
-                  className="w-full h-full object-contain"
-                />
+              <div className="w-48 h-48 bg-white rounded-lg flex items-center justify-center">
+                {qrCodeUrl ? (
+                  <img
+                    src={qrCodeUrl}
+                    alt="QR Code - Feature coming soon"
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                    <div className="text-gray-400 text-sm">Loading QR Code...</div>
+                  </div>
+                )}
               </div>
-              <p className="text-black text-sm font-medium mt-4">Scan to download</p>
+              <p className="text-black text-sm font-medium mt-4 text-center">Scan to download</p>
             </div>
           </div>
 

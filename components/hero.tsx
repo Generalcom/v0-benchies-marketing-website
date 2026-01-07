@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Download } from "lucide-react"
 import { useEffect, useState } from "react"
+import Countdown from "@/components/countdown"
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -51,14 +52,35 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* App Store Badges Placeholder */}
+            {/* Countdown */}
+            <div className="pt-4">
+              <Countdown />
+            </div>
+
+            {/* App Store Badges */}
             <div className="flex flex-wrap gap-4 pt-4">
-              <div className="h-12 w-36 bg-white/10 rounded-lg flex items-center justify-center text-xs text-gray-400">
-                App Store Badge
-              </div>
-              <div className="h-12 w-36 bg-white/10 rounded-lg flex items-center justify-center text-xs text-gray-400">
-                Google Play Badge
-              </div>
+              <a
+                href="#"
+                className="inline-block hover:opacity-80 transition-opacity"
+                aria-label="Download on the App Store"
+              >
+                <img
+                  src="/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  className="h-12 w-auto"
+                />
+              </a>
+              <a
+                href="#"
+                className="inline-block hover:opacity-80 transition-opacity"
+                aria-label="Get it on Google Play"
+              >
+                <img
+                  src="/google-play-badge.svg"
+                  alt="Get it on Google Play"
+                  className="h-12 w-auto"
+                />
+              </a>
             </div>
           </div>
 
@@ -74,7 +96,7 @@ export default function Hero() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-3xl" />
                 <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                   <img
-                    src="/modern-mobile-banking-app-dashboard.jpg"
+                    src="/financial-dashboard-balance-overview.jpg"
                     alt="Benchies App Dashboard"
                     className="w-full h-full object-cover"
                   />

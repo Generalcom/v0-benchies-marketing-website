@@ -15,8 +15,8 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <Screenshots />
-      <VideoDemo />
       <Download />
+      <VideoDemo />
       <Footer />
     </main>
   )
